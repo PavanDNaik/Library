@@ -1,0 +1,99 @@
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    resize: vertical;
+    margin: 0;
+}
+
+.pop-up > form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label,
+input{
+    text-align: center;
+}
+
+#ok,#close{
+    width: inherit;
+}
+
+div#Shelf {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5%;
+    gap: 25px;
+}
+
+div.card{
+    flex: 1;
+    max-width: 25%;
+    min-width: 250px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    padding: 10px;
+}
+
+.card div{
+    flex: 1;
+    text-align: center;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+dialog{
+    width: 16%;
+    min-width: 150px;
+    margin-top: 10%;
+}
+
+.add-book{
+    min-width: 50px;
+    width: 100px;
+}
+
+.my-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.my-buttons button{
+    min-width: 25px;
+    min-height: 25px;
+}
+
+.read-book,
+.not-read-book{
+    border-radius: 5px;
+}
+
+
+div.read-book::before{
+    content: "read";
+}
+
+div.not-read-book::before{
+    content: "not-read";
+}
+
+div.read-book{
+    background-color: lightgreen;
+}
+
+div.not-read-book{
+    
+    background-color: red;
+}
