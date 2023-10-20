@@ -1,6 +1,6 @@
 const dialog  = document.getElementById("addBook");
 const add  = document.getElementById("ok");
-const clos = document.getElementById("close");
+const closeB = document.getElementById("close");
 const addBook = document.getElementById("add-book");
 
 const iTitle = document.getElementById("title");
@@ -22,7 +22,7 @@ addBook.addEventListener("click", ()=>{
     dialog.toggleAttribute("open");
 })
 
-clos.addEventListener("click",(e)=>{
+closeB.addEventListener("click",(e)=>{
     e.preventDefault();
     dialog.close();
 })
@@ -35,7 +35,6 @@ add.addEventListener("click",(e)=>{
     }
     let newBook = new Book(iTitle.value,iAuthor.value,iPages.value,iRead.checked);
     updateLibrary(newBook);
-    dialog.close();
 })
 
 function updateLibrary(newBook){
@@ -67,17 +66,18 @@ function updateLibrary(newBook){
         readDiv.classList.add("not-read-book");
         readCheckBox.checked = false;
     }
+
     readDiv.appendChild(readCheckBox);
     readCheckBox.addEventListener("change",(event)=>{
-        handleChange(event);
-    })
+        handleChange(event,newBook,readCheckBox);
+    });
     
     const removeButton = document.createElement("button");
     removeButton.textContent = "remove";
     removeButton.setAttribute("id","remove");
     removeButton.addEventListener("click",(event)=>{
         handleDelete(event,newBook);
-});
+    });
 
     newDiv.appendChild(titleDiv);
     newDiv.appendChild(authorDiv);
@@ -86,14 +86,23 @@ function updateLibrary(newBook){
     newDiv.appendChild(removeButton);
     
     shelf.appendChild(newDiv);
+    clearForm();
+    dialog.close();
 }
 
-function handleChange(event){
+function handleChange(event,newBook,readCheckBox){
+    if(readCheckBox.checked){
+        newBook.read = true;
+    }
+    else{
+        newBook.read = false;
+    }
     event.target.parentElement.classList.toggle("not-read-book");
     event.target.parentElement.classList.toggle("read-book");
 }
 
 function handleDelete(event,newBook){
+
     books = books.filter(function(b){
         return b!==newBook;
     });
@@ -108,4 +117,11 @@ function checkForCopy(newBook){
     }
     books.push(newBook);
     return false;
+}
+
+function clearForm(){
+    iTitle.value = "";
+    iAuthor.value = "";
+    iPages.value = "";
+    iRead.checked = false;
 }
