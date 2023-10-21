@@ -7,6 +7,7 @@ body{
     margin: 0;
     font-family: 'Roboto', sans-serif;
     background-color: #ddd6fe;
+    overflow: auto;
 }
 
 .pop-up > form{
@@ -186,5 +187,33 @@ header{
     top: 0;
     left: 0;
     right: 0;
+    z-index: 3;
 }
 
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    border-top: 1px solid black;
+    background-color: #d8b4fe;
+    z-index: 3;
+}
+
+footer img{
+    height: 30px;
+}
+a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+a:active{
+    text-decoration: none;
+}
