@@ -48,13 +48,18 @@ function updateLibrary(newBook){
     newDiv.classList.add("card");
     
     const titleDiv = document.createElement("div");
-    titleDiv.textContent = newBook.title;
+    titleDiv.textContent = newBook.title.toUpperCase();
+    titleDiv.classList.add("card-book-title");
+
     const authorDiv = document.createElement("div");
-    authorDiv.textContent = newBook.author;
+    authorDiv.textContent = "by "+newBook.author;
+    authorDiv.classList.add("card-book-author");
+
     const pagesDiv = document.createElement("div");
     pagesDiv.textContent = newBook.pages + " - pages";
-    const readDiv = document.createElement("div");
+    pagesDiv.classList.add("card-book-pages");
 
+    const readDiv = document.createElement("div");
     const readCheckBox = document.createElement("input");
     readCheckBox.setAttribute("type","checkbox");
 
@@ -73,7 +78,7 @@ function updateLibrary(newBook){
     });
     
     const removeButton = document.createElement("button");
-    removeButton.textContent = "remove";
+    removeButton.textContent = "X";
     removeButton.setAttribute("id","remove");
     removeButton.addEventListener("click",(event)=>{
         handleDelete(event,newBook);

@@ -5,6 +5,7 @@ body{
     align-items: center;
     resize: vertical;
     margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 .pop-up > form{
@@ -32,6 +33,7 @@ div#Shelf {
 }
 
 div.card{
+    position: relative;
     flex: 1;
     max-width: 25%;
     min-width: 250px;
@@ -43,19 +45,23 @@ div.card{
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     padding: 10px;
+    background-color: #d5feff;
 }
 
 .card div{
     flex: 1;
     text-align: center;
-    background-color: #eee;
+    background-color: #aac2fe;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
+    word-wrap: break-word;
 }
 
 dialog{
+    position: fixed;
+    z-index: 2;
     transition: ease-in-out;
     width: 16%;
     min-width: 150px;
@@ -63,25 +69,70 @@ dialog{
     border: none;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    background-color: #93c5fd;
 }
 
 dialog:hover{
 transform: scale(1.01);
 }
 
+dialog input{
+    outline: none;
+    border: none;
+    font-size: 20px;
+    border-radius: 25px;
+}
+
+#ok,
+#close{
+    border-radius: 25px;
+    border: none;
+    color: white;
+    background-color: #4f46e5;
+    padding: 0 15px ;
+}
+
+#remove{
+    color: white;
+    background-color: #0ea5e9;
+    border: none;
+    border-radius: 0 5px 0 0;
+    height: 20px;
+    width:25px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+#remove:hover{
+    background-color: #e11d48;
+    
+}
+
+.card-book-title{
+    font-size: 25px;
+    font-family: 'Roboto Slab', serif;
+}
+
+.card-book-author{
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card-book-pages{
+    font-size: 16px;
+}
 .add-book{
     min-width: 50px;
     width: 100px;
     border: none;
     height: 40px;
     border-radius: 25px;
-    background-color: blue;
+    background-color: #4f46e5;
     color: white;
 }
 
 .add-book:hover{
-    background-color: lightgreen;
-    color: gray;
     scale: (1.01);
 }
 
@@ -116,12 +167,11 @@ div.not-read-book::before{
 }
 
 div.read-book{
-    background-color: lightgreen;
+    background-color: #4ade80;
 }
 
 div.not-read-book{
-    
-    background-color: red;
+    background-color: #e11d48;
 }
 
 header{
@@ -136,3 +186,4 @@ header{
     left: 0;
     right: 0;
 }
+
