@@ -56,6 +56,7 @@ div.card{
 }
 
 dialog{
+    transition: ease-in-out;
     width: 16%;
     min-width: 150px;
     margin-top: 10%;
@@ -64,12 +65,31 @@ dialog{
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
+dialog:hover{
+transform: scale(1.01);
+}
 
 .add-book{
     min-width: 50px;
     width: 100px;
+    border: none;
+    height: 40px;
+    border-radius: 25px;
+    background-color: blue;
+    color: white;
 }
 
+.add-book:hover{
+    background-color: lightgreen;
+    color: gray;
+    scale: (1.01);
+}
+
+.add-book:active{
+    color: white;
+    transition: ease-in;
+    transform: scale(0.95);
+}
 .my-buttons{
     display: flex;
     align-items: center;
